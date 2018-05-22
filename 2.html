@@ -1,98 +1,34 @@
-<html>
- <head>    
+<head>
     <meta charset="utf-8">
- </head>
-  	<script>
-  		/*--------Задание 1--------
-  		var a = 1, b = 1, c, d;
-        c = ++a; alert(c); // 2, потому что сложение через инкремент
-        d = b++; alert(d); // 1, потому что постфикс. Подумал про него, написал другое
-        c = (2+ ++a); alert(c); // 5, переменная а изначально = 2, тк увеличен через инкремент => 2+(2+1)
-        d = (2+ b++); alert(d); // 4, тк b уже была = 2, но ++ используется как постфикс => сначала возвращается значение переменной, складывается с 2, а потом увеличивается на 1 
-        alert(a); // 3, увеличено в двух операциях с c
-        alert(b); // 3, увеличено в операции с d посредством постфикса
-        */
-        /*--------Задание 2--------
-        var a = 2;
-        var x = 1 + (a *= 2);//5, потому что сначала умножение на 2, а потом +1
-        alert(x);
-        
-        /*--------Задание 3--------
-        var a = 1, b = -8;
-        if (a>=0 && b>=0) {alert(a-b);}
-        else if (a<0 && b<0) {alert(a*b);}
-        else alert(a+b);
-        */
-        /*--------Задание 4--------    	  
-        var a = Math.random()*15;
-        alert(a);
-        var b=a;
-        function test(a,b) {        	
-        	switch (a){
-        	    case a:while (b<15){
-        		   alert(b);
-        		   b++;        			
-        	    }break;
-        }
-        }
-        test(a,b);
-        */ 
-        /*--------Задание 5--------
-        function plus(a,b) {return +a+ +b;}
-        function minus(a,b) {return a-b;}
-        function umn(a,b) {return a*b;}
-        function div(a,b) {return a/b;}
-        var s = prompt("Ведите желаемую операцию plus, minus, umn or div");
-        switch(s){
-        	case "plus":  var a = prompt("Введите первое число");
-        	              var b = prompt("Введите второе число");
-        	              alert(plus(a,b));
-        	              break;
-        	case "minus": var a = prompt("Введите число, из которого будем вычитать");
-        	              var b = prompt("Введите число, которое будем вычитать из первого");
-        	              alert(minus(a,b));
-        	              break;
-        	case "umn":   var a = prompt("Введите первое число");
-        	              var b = prompt("Введите второе число");
-        	              alert(umn(a,b));
-        	              break;
-        	case "div":   var a = prompt("Введите числитель(что делим)");
-        	              var i=0;
-        	              var b = prompt("Введите знаменатель(на что делим)(не равный 0)");
-        	              while (b==0){
-        	              	alert("Знаменатель равен нулю, советуем изменить своё решение");
-        	              	var b = prompt("Введите знаменатель(на что делим)");
-        	              	i++;
-        	              	if (i==15){alert("Хозяин, я устал и ничего не добился");break;};
-        	              }        	              
-        	              alert(div(a,b));
-        	              break;
-        }
-        */
-        /*--------Задание 6-------- --------------------------Сделал костяк этой функции в предыдущем примере, вот уменьшенная копия примера)
-  		function plus(x,y){return +x+ +y;}  		
-        function umn(x,y){return x*y;}
-        function math(x,y,oper) {
-        	switch(oper){
-        		case 'plus': return plus(x,y);break;
-        		case 'umn' : return umn(x,y);break;
-        	}
-        }
-        var x = prompt("Вводим x");
-        var y = prompt("Вводим y");    
-        alert("Сумма "+plus(x,y));        
-        alert("Умножение "+umn(x,y));
-        var oper = prompt("Введите");
-        alert ("Ваш ответ: "+math(x,y, oper));*/
-        /*--------Задание 7--------*/
-
-        /*--------Задание 8--------
-        function power(val, pow){
-        	if (pow==0){ return 1;}
-        	else return val*power(val,--pow);
-        }
-        var val = prompt("Введите возводимое в степень число");
-        var pow = prompt("Введите степень");
-        alert(power(val, pow));*/
-  	</script>
-</html>
+</head>
+<script>
+    /*-------- 1 задание---------
+    var n=0;
+    while(n!=101){
+    	alert(n);
+    	n+=1;
+    }*/
+	/*-------- 2 задание---------
+	var a = 0;
+	do{
+        if (a==0) alert(a+" - это ноль");
+        else {
+	    if (a & 1 & a!=0) alert(a + " - нечетное число" );
+        else alert(a + " - четное число" );}
+        a++;
+       }
+    while (a!=11);*/
+	/*-------- 3 задание---------
+	for (var i = 0; i <= 10; alert(i++)) {
+	}
+	*/
+	/*-------- 4 задание---------
+	x='';
+	var a=0;
+	while (a<=4) {
+		x+="x";
+		console.log(x);
+		a++;
+	}
+	*/
+</script>
