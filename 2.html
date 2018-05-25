@@ -1,34 +1,57 @@
+<!DOCTYPE html>
+<html>
 <head>
+    <title></title>
     <meta charset="utf-8">
 </head>
-<script>
-    /*-------- 1 задание---------
-    var n=0;
-    while(n!=101){
-    	alert(n);
-    	n+=1;
-    }*/
-	/*-------- 2 задание---------
-	var a = 0;
-	do{
-        if (a==0) alert(a+" - это ноль");
-        else {
-	    if (a & 1 & a!=0) alert(a + " - нечетное число" );
-        else alert(a + " - четное число" );}
-        a++;
-       }
-    while (a!=11);*/
-	/*-------- 3 задание---------
-	for (var i = 0; i <= 10; alert(i++)) {
-	}
-	*/
-	/*-------- 4 задание---------
-	x='';
-	var a=0;
-	while (a<=4) {
-		x+="x";
-		console.log(x);
-		a++;
-	}
-	*/
-</script>
+<body>
+    <script>
+        /*---------Задание 1----------
+  var chi = {
+    sotni: " ",
+    des: " ",
+    ed: " "
+  };
+  function chislo(chi){
+    var z=0;
+    c = prompt("Введите число");
+    if (c>1000){
+        while (c>1000 && z<=10){
+        z+=1;
+        c = prompt("Ваше число больше тысячи, попробуйте ввести его в промежутке от 0 до 999");       
+        }
+    } 
+    if (z>10) {
+        alert("Пощади :c");
+        return 0;
+    } 
+    else{
+    chi.sotni = ~~(c/100);
+    chi.des = ~~((c - chi.sotni*100)/10);    
+    chi.ed = ~~((c - chi.sotni*100)-chi.des*10);
+      }
+  }
+  chislo(chi);
+  console.log(chi);*/
+  /*---------Задание 2----------
+    var h = +prompt("Введите номер нужного окна");//Если написать данный код, то будет выводить сообщение отдельно и не продолжать
+    switch(h){
+        case 1: alert(works.a00 + works.a1 + works.a2);break;
+        case 2: alert(works.b00 + works.b1 + works.b2);break;
+        case 3: alert(works.c00 + works.c1 + works.c2);break;
+        case 4: alert(works.d00 + works.d1 + works.d2);break;
+    }
+   // Если добавить данный код, то всё работает дальше с указанного шага - так даже интереснее
+    var h = +prompt("Введите номер нужного окна");
+    switch(h){
+        case 1: h = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры');
+        case 2: h = +prompt(works.b00 + works.b1 + works.b2 + '-1 - Выход из игры');
+        case 3: h = +prompt(works.c00 + works.c1 + works.c2 + '-1 - Выход из игры');
+        case 4: h = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
+    }
+    */
+  /*---------Задание 3----------*/
+
+  </script>
+</body>
+</html>
