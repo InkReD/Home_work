@@ -5,53 +5,129 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <script>
-        /*---------Задание 1----------
-  var chi = {
-    sotni: " ",
-    des: " ",
-    ed: " "
-  };
-  function chislo(chi){
-    var z=0;
-    c = prompt("Введите число");
-    if (c>1000){
-        while (c>1000 && z<=10){
-        z+=1;
-        c = prompt("Ваше число больше тысячи, попробуйте ввести его в промежутке от 0 до 999");       
+    <style>
+        body {padding: 20px;}
+        .main-desck{
+            width: 452px;
+            height: 452px;
         }
-    } 
-    if (z>10) {
-        alert("Пощади :c");
-        return 0;
-    } 
-    else{
-    chi.sotni = ~~(c/100);
-    chi.des = ~~((c - chi.sotni*100)/10);    
-    chi.ed = ~~((c - chi.sotni*100)-chi.des*10);
-      }
-  }
-  chislo(chi);
-  console.log(chi);*/
-  /*---------Задание 2----------
-    var h = +prompt("Введите номер нужного окна");//Если написать данный код, то будет выводить сообщение отдельно и не продолжать
-    switch(h){
-        case 1: alert(works.a00 + works.a1 + works.a2);break;
-        case 2: alert(works.b00 + works.b1 + works.b2);break;
-        case 3: alert(works.c00 + works.c1 + works.c2);break;
-        case 4: alert(works.d00 + works.d1 + works.d2);break;
-    }
-   // Если добавить данный код, то всё работает дальше с указанного шага - так даже интереснее
-    var h = +prompt("Введите номер нужного окна");
-    switch(h){
-        case 1: h = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры');
-        case 2: h = +prompt(works.b00 + works.b1 + works.b2 + '-1 - Выход из игры');
-        case 3: h = +prompt(works.c00 + works.c1 + works.c2 + '-1 - Выход из игры');
-        case 4: h = +prompt(works.d00 + works.d1 + works.d2 + '-1 - Выход из игры');
-    }
-    */
-  /*---------Задание 3----------*/
+        .ch-wrap {
+          width: 400px;
+          height: 400px;
+          border: 1px solid #111;
+        }
+        .ch-item {
+          width: 50px;
+          height: 50px;
+          float: left;
+          position: relative;
+        }
+        .ch-x-text {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            text-transform: uppercase;
+        }
+        .ch-y-text {
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            text-transform: uppercase;
+        }
+        .ch-y2-text {
+            position: absolute;
+            right: -20px;
+            top: 5px;
+            text-transform: uppercase;
+            transform: rotate(200grad);
+        }
+        .ch-x2-text {
+            position: absolute;
+            bottom: -20px;
+            left: 5px;
+            text-transform: uppercase;
+            transform: rotate(200grad);
+        }
+        .rotate {
+            transform: rotate(200grad);
+            display: block;
+            text-align: right;
+        }
+        .ch-black {
+          background: green;
+        }
+    </style>
+      <div class="ch-wrap">
+    <script>
 
+        var line_y = ['A','B','C','D','E','F','G','H'];
+        var container = document.querySelector(".ch-wrap");
+
+        var FiguresBlack = ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'];
+        var BaseFiguresBlack = '♟';
+
+        var FiguresWhite = ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'];
+        var BaseFiguresWhite = '♙';
+        for(var y = 1; y <= line_y.length; y++) {
+            for (var x = 1; x <= line_y.length; x++) {
+
+                var item = document.createElement("div");
+
+                var text_x = '<div class="ch-x-text">' + x + '</div>';
+                var text_y = '<div class="ch-y-text">' + line_y[y-1] + '</div>';
+                var text_y2 = '<div class="ch-y2-text">' + line_y[line_y.length - y] + '</div>';
+                var text_x2 = '<div class="ch-x2-text">' + (line_y.length + 1 - x) + '</div>';
+
+                if(x == 1 && y == 1) {
+                    item.innerHTML = text_x + text_y;
+                } else if(y == 1){
+                    item.innerHTML = text_x;
+                    if(x == line_y.length) {
+                        item.innerHTML += text_y2;
+                    }
+                } else if (x == 1) {
+                    item.innerHTML = text_y;
+                    if(y == line_y.length) {
+                        item.innerHTML += text_x2;
+                    }
+                } else if (x == line_y.length) {
+                    item.innerHTML += text_y2;
+                    if(y == line_y.length) {
+                        item.innerHTML += text_x2;
+                    }
+                } else if (y == line_y.length) {
+                    item.innerHTML += text_x2;
+                }
+
+                switch (y) {
+                    case 1:
+                        item.innerHTML += '<span class="rotate">' + FiguresBlack[x - 1] + '</span>';
+                        break;
+                    case 2:
+                        item.innerHTML +='<span class="rotate">' + BaseFiguresBlack + '</span>';
+                        break;
+                    case (line_y.length - 1):
+                        item.innerHTML +=  BaseFiguresWhite ;
+                        break;
+                    case (line_y.length):
+                        item.innerHTML +=  FiguresWhite[x - 1] ;
+                        break;
+                }
+
+                container.appendChild(item);
+
+                item.classList.add("ch-item");
+                if(y & 1) {
+                    if(!(x & 1)) {
+                        item.classList.add("ch-black");
+                    }
+                } else {
+                    if((x & 1)) {
+                        item.classList.add("ch-black");
+                    }
+                }
+            }
+        }
   </script>
 </body>
 </html>
