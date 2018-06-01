@@ -1,0 +1,73 @@
+<html>
+ <head>    
+    <meta charset="utf-8">
+ </head>
+ <html>
+ <style type="text/css">
+   .box{
+    display: flex;
+    width: 530px;
+    height: 530px;
+    justify-content: center;
+   }
+   input.left{
+    width:20px; 
+    height:70px;
+    margin-top: 250px;
+    margin-right:-20px;
+    border-bottom: none;
+    background-color:white;
+    opacity: 0.75;
+   }
+   input.right{
+    width:20px; 
+    height:70px;
+    margin-top: 250px;
+    margin-left: -20px;
+    border-bottom: none;
+    background-color:white;
+    opacity: 0.75;
+   }
+   input.right:hover{
+       box-shadow: 0px 0px 1px 1px grey;
+   }
+ </style>
+<head>
+<script type="text/javascript">
+  var array = new Array(
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    );
+  
+  var i = 0;
+  function left() {
+    var image = document.getElementById("rbutton");
+    var dis = document.getElementById("dis");
+    i--;
+    if (i<0) i = array.length - 1;
+    image.src = array[i];  
+  }
+  function right() {
+    var image = document.getElementById("rbutton");
+    i++;
+    if (i == array.length) i = 0;
+    image.src = array[i];
+  }
+</script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<div class="box">
+  <input class = "left" id='dis' type = 'image' src='2s.png' name = 'left' value = '<' onclick = 'left()' />   
+
+      <script>
+        document.write("<img id = 'rbutton' src = '" + array[0] + "' alt = 'Картинка' width = '500' height = '500' />");
+      </script>
+      <input class = "right" type = 'image' src='1s.png' name = 'right' value = '>' onclick = 'right()' />
+
+</body>
+</html>

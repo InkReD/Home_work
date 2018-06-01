@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Корзина</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal" id="apple">Яблоки</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title" id="item_price1">20</h1>\кг
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>килограмм</li>
+              <li>самых вкусных</li>
+              <li>и зеленых</li>
+              <li>или красных яблок</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="elem1" onclick="clickissue1()">Купить</button>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal" >Бананы</h4>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title pricing-card-title" id="item_price2">50</h4>\кг
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>килограмм</li>
+              <li>самых вкусных</li>
+              <li>и ярких как солнце в Италии</li>
+              <li>бананов</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="elem2" onclick="clickissue2()">Купить</button>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Клубника</h4>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title pricing-card-title" id="item_price3">100</h4>\кг
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>килограмм</li>
+              <li>самой вкусной</li>
+              <li>и красной как необитаемый Марс</li>
+              <li>клубнички</li>
+            </ul>
+            <button type="button" id="elem3" class="btn btn-lg btn-block btn-outline-primary" onclick="clickissue3()">Купить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br> <br>
+
+    <button id="checkout" onclick='total_sum()'>ИТОГО СУММА</button>
+    <button id="clear_cart" onclick= 'cleanCard()'>Очистить корзину</button>
+    <div id="cart_content"></div>
+
+<script>
+        var d = document,
+            itemBox = document.querySelectorAll('.item_box'), // блок каждого товара
+            cartCont = document.getElementById('cart_content'); // блок вывода данных корзины
+
+        function CardCheckF() {
+
+            var CheckCard = document.getElementById("cart_content"); // проверяем если корзина пуста
+            if (CheckCard = "undefined") {
+                var empty_card = document.createElement('p');
+                empty_card.innerHTML = "<strong>Корзина пуста!</strong>";
+                cart_content.appendChild(empty_card);
+            };
+        }
+
+        CardCheckF(); // функция проверки
+
+        var CardListObject = ['Корзина пуста']; //создание пустого объекта корзины 
+
+        tableTeg = document.createElement('table');
+
+        tableTeg.setAttribute('border', 1);
+
+        tableTeg.setAttribute('width', 300);
+
+        document.body.appendChild(tableTeg);
+
+        for (i = 1; i < 6; i++) {
+            tableTeg.appendChild(newTr = document.createElement('tr'));
+
+            for (j = 1; j < 3; j++) {
+
+                newTr.appendChild(newTd = document.createElement('td'));
+
+
+                newTd.innerText = '';
+                newTd.setAttribute('align', 'center');
+                newTd.setAttribute('class','col-4');
+
+            }
+
+        }
+        tableTeg.rows[0].cells[0].innerText = "Наименование товара";
+        tableTeg.rows[0].cells[1].innerText = "Стоимость";
+
+        function clickissue1() {
+            var AddToCardApple = document.body.children[0].children[0].children[0].children[0].children[0];
+            cart_content.innerHTML = AddToCardApple.innerText;
+            tableTeg.rows[1].cells[0].innerText = AddToCardApple.innerHTML;
+
+            var AddToCardApple = document.body.children[0].children[0].children[0].children[1];
+
+            var A_price = document.getElementById("item_price1");
+            tableTeg.rows[1].cells[1].innerText = A_price.innerText;
+        }
+        
+
+        function clickissue2() {
+            var AddToCardBanana = document.body.children[0].children[0].children[1].children[0].children[0];
+            cart_content.innerHTML = AddToCardBanana.innerHTML;
+            tableTeg.rows[2].cells[0].innerText = AddToCardBanana.innerHTML;
+
+            AddToCardBanana = document.body.children[0].children[0].children[1].children[0].children[0];
+
+            var B_price = document.getElementById("item_price2");
+            tableTeg.rows[2].cells[1].innerText = B_price.innerText;
+        }
+
+        function clickissue3() {
+            var AddToCardStraw = document.body.children[0].children[0].children[2].children[0].children[0];
+            cart_content.innerHTML = AddToCardStraw.innerHTML;
+            tableTeg.rows[3].cells[0].innerText = AddToCardStraw.innerHTML;
+
+            var AddToCardStraw = document.body.children[0].children[0].children[2].children[0].children[0];
+          
+            var S_price = document.getElementById("item_price3");
+            tableTeg.rows[3].cells[1].innerText = S_price.innerText;
+            
+        }
+
+        tableTeg.rows[4].cells[0].innerText = "Итого";
+        
+        
+        function total_sum () {
+            var a = tableTeg.rows[1].cells[1].innerHTML;
+            var b = tableTeg.rows[2].cells[1].innerHTML;
+            var s = tableTeg.rows[3].cells[1].innerHTML;
+            var totalSum = tableTeg.rows[4].cells[1];
+            sum = (+a + +b + +s);            
+            totalSum.innerHTML = +sum;
+        }
+        
+        function cleanCard() {
+            var clean = document.getElementById('cart_content');
+            clean.innerText = "Корзина пуста";            
+            var totalSum = tableTeg.rows[4].cells[1];
+            totalSum.innerHTML = '';
+            var clean1 = tableTeg.rows[1].cells[1];
+            clean1.innerText = '';
+            var clean2 = tableTeg.rows[2].cells[1];
+            clean2.innerText = '';
+            var clean3 = tableTeg.rows[3].cells[1];
+            clean3.innerText = '';   
+        }
+</script>
+</body>
+</html>
